@@ -1,21 +1,35 @@
 document.getElementById("previewBtn").addEventListener("click", async () => {
   const box = document.getElementById("previewBox");
-  if (box.classList.contains("hidden")) {
+  try {
     const response = await fetch("tools.py");
     const text = await response.text();
-    box.textContent = text;
-    box.classList.remove("hidden");
-  } else {
-    box.classList.add("hidden");
+    if (response.ok) {
+      box.textContent = text;
+      box.classList.remove("hidden");
+    } else {
+      throw new Error("Failed to fetch file");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Gagal memuat file.");
   }
   playClickSound();
 });
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
-  const response = await fetch("tools.py");
-  const text = await response.text();
-  await navigator.clipboard.writeText(text);
-  alert("📋 Isi file berhasil disalin ke clipboard!");
+  try {
+    const response = await fetch("tools.py");
+    const text = await response.text();
+    if (response.ok) {
+      await navigator.clipboard.writeText(text);
+      alert("📋 Isi file berhasil disalin ke clipboard!");
+    } else {
+      throw new Error("Failed to fetch file");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Gagal menyalin file.");
+  }
   playClickSound();
 });
 
