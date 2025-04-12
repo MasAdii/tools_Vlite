@@ -14,6 +14,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 2rem;
+  overflow-x: hidden;
 }
 
 .container {
@@ -23,23 +24,22 @@ body {
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  animation: bounceIn 1s ease-out;
 }
 
-header {
-  margin-bottom: 2rem;
-}
-
-h1 {
+header h1 {
   font-size: 2.5rem;
   color: #2d3e50;
   margin-bottom: 0.5rem;
+  animation: fadeInHeader 2s ease-out;
 }
 
-p {
+header p {
   font-size: 1rem;
   color: #6c757d;
 }
 
+/* Header link animation */
 a {
   color: #007bff;
   text-decoration: none;
@@ -49,9 +49,10 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Description section */
 .description {
   margin-bottom: 2rem;
+  opacity: 0;
+  animation: slideUp 1.5s ease-out forwards;
 }
 
 .description h2 {
@@ -60,7 +61,6 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-/* Button styles */
 button {
   padding: 12px 20px;
   font-size: 1rem;
@@ -70,11 +70,13 @@ button {
   transition: background-color 0.3s;
   margin: 0.5rem;
   font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .download-btn {
   background-color: #28a745;
   color: white;
+  animation: fadeInButton 2s ease-out;
 }
 
 .download-btn:hover {
@@ -84,6 +86,7 @@ button {
 .github-btn {
   background-color: #007bff;
   color: white;
+  animation: fadeInButton 2s ease-out;
 }
 
 .github-btn:hover {
@@ -94,6 +97,7 @@ footer {
   margin-top: 2rem;
   font-size: 0.9rem;
   color: #6c757d;
+  animation: fadeIn 2s ease-out;
 }
 
 footer a {
@@ -102,4 +106,42 @@ footer a {
 
 footer a:hover {
   color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInHeader {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInButton {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
 }
