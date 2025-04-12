@@ -28,7 +28,7 @@ body {
   text-align: center;
   padding: 2rem;
   animation: backgroundShift 10s infinite alternate;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: 0.4s ease;
 }
 
 @keyframes backgroundShift {
@@ -45,10 +45,9 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255,255,255,0.1);
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   color: var(--text);
 }
@@ -75,8 +74,8 @@ h1 {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 20px;
   padding: 2rem;
   backdrop-filter: blur(10px);
