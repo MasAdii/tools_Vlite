@@ -1,7 +1,7 @@
 document.getElementById("previewBtn").addEventListener("click", async () => {
   const box = document.getElementById("previewBox");
   if (box.classList.contains("hidden")) {
-    const response = await fetch("tools_vlite.py");
+    const response = await fetch("tools.py");
     const text = await response.text();
     box.textContent = text;
     box.classList.remove("hidden");
@@ -12,7 +12,7 @@ document.getElementById("previewBtn").addEventListener("click", async () => {
 });
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
-  const response = await fetch("tools_vlite.py");
+  const response = await fetch("tools.py");
   const text = await response.text();
   await navigator.clipboard.writeText(text);
   alert("📋 Isi file berhasil disalin ke clipboard!");
